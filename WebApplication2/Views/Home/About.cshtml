@@ -1,0 +1,108 @@
+﻿<h2>Test Nawadata</h2>
+<p>Test Buang Spesial Karakter :  @ViewData["Message"]</p>
+<div class="col-md-4">
+    <p>TEST 01</p>
+    <input type="text" id="varia01" value="10" class="form-control" /><hr />
+    <button id="cmdPros" class="btn btn-primary" onclick=showFileTest01()>Execute</button>
+</div>
+<div class="col-md-4">
+    <p>TEST 02</p>
+    <input type="text" id="varia02" value="sample case" class="form-control" /><hr />
+    <button id="cmdPros" class="btn btn-primary" onclick=showFileTest02()>Execute</button>
+</div>
+<div class="col-md-4">
+    <p>TEST 03</p>
+    <input type="text" id="varia03" value="10" class="form-control" /><hr />
+    <button id="cmdPros" class="btn btn-primary" onclick=showFileTest03()>Execute</button>
+</div>
+<div class="col-md-6">
+    <h3>TEST 04</h3>
+    Hasil :<br />
+    <input type="text" id="varia04" value="105" class="form-control" />
+    <hr />
+    <button id="cmdPros" class="btn btn-primary" onclick=showFileTest04()>Execute</button>
+</div>
+<div class="col-md-6">
+    <h3>TEST 05</h3>
+    <div class="col-md-9">
+        Bilangan<br />
+        <input type="text" id="varia05" value="1-2-3-4-10" class="form-control" />
+    </div>
+    <div class="col-md-3">
+        Hasil<br />
+        <input type="text" id="max05" value="5" class="form-control" />
+    </div>
+    <p>&nbsp;</p>
+    <hr />
+    <button id="cmdPros" class="btn btn-primary" onclick=showFileTest05()>Execute</button>
+</div>
+<p>&nbsp;</p>
+<p><small>Kalau Bingung langsung klik tombol executenya saja</small></p>
+<p>&nbsp;</p>
+<div id="test"></div>
+<script>
+    function showFileTest01() {
+        $.ajax({
+            url: "/Home/test01?value=" + $("#varia01").val(),
+            //url: "/FileFolder/test_post/",
+            method: "GET",
+            dataType: "text",
+            success: function (filedata) {
+                $("#test").html("<h3>Test01</h3>");
+                $("#test").append(filedata);
+            }
+        });
+    }
+
+    function showFileTest02() {
+        $.ajax({
+            url: "/Home/test02?value=" + $("#varia02").val(),
+            //url: "/FileFolder/test_post/",
+            method: "GET",
+            dataType: "text",
+            success: function (filedata) {
+                $("#test").html("<h3>Test02</h3>");
+                $("#test").append(filedata);
+            }
+        });
+    }
+
+    function showFileTest03() {
+        $.ajax({
+            url: "/Home/test03?value=" + $("#varia03").val(),
+            //url: "/FileFolder/test_post/",
+            method: "GET",
+            dataType: "text",
+            success: function (filedata) {
+                $("#test").html("<h3>Test03</h3>");
+                $("#test").append(filedata);
+            }
+        });
+    }
+
+    function showFileTest04() {
+        $.ajax({
+            url: "/Home/test04?value=" + $("#varia04").val(),
+            //url: "/FileFolder/test_post/",
+            method: "GET",
+            dataType: "text",
+            success: function (filedata) {
+                $("#test").html("<h3>Test04</h3>");
+                $("#test").append(filedata);
+            }
+        });
+    }
+
+    function showFileTest05() {
+        $.ajax({
+            url: "/Home/test05?value=" + $("#varia05").val() + "&max=" + $("#max05").val() ,
+            //url: "/FileFolder/test_post/",
+            method: "GET",
+            dataType: "text",
+            success: function (filedata) {
+                $("#test").html("<h3>Test05</h3>");
+                $("#test").append(filedata);
+            }
+        });
+    }
+</script>
